@@ -34,7 +34,7 @@ int main() {
   printf("\n Array contains: ");
   for(int i=0;i<n;i++) { printf("%d ",arr[i]); }
   for(int i=(n-1)/2;i>=0;i--) { maxheapify(arr,n,i); }
-  printf("\n\n\tArray after Maxheap \n\n");
+  printf("\n Array after Maxheap: ");
   for(int i=0;i<n;i++) { printf("%d ",arr[i]); }
 
   getch();
