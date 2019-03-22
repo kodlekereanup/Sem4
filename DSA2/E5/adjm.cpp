@@ -33,8 +33,9 @@ void Graph :: connectVertices(int i , int j, bool state = true) {
 }
 
 void Graph :: showGraph() {
+  //printf(" %d "); 
   for(int i = 0; i < vertices; i++) {
-   // printf("%d ",i);
+  //  printf("%d: ",i);
     for(int j = 0; j < vertices; j++) 
       printf("%d ",adjMatrix[i][j]);
     printf("\n");
@@ -44,13 +45,24 @@ void Graph :: showGraph() {
 int main() {
   // No third argument: Undirected
   // true: directed both sides, false: directed only one side
-  Graph g(4,3);
-  g.connectVertices(0,1,false);
-  g.connectVertices(1,2,false);
-  g.connectVertices(2,3,false);
-  g.connectVertices(3,0,false);
-  g.showGraph();
+  int v = 0, e = 0, counter = 0, srcVertex = 0, desVertex = 0;  
+  int state = 0;
+  printf("\n Enter the number of vertices and edges of the graph:");
+  scanf("%d%d",&v,&e);
+  Graph g(v,e);
+  while(counter != (g.getVertices())) {
+    counter++;
+    printf("\n Enter source vertex number (0-vertices): ");
+    scanf("%d",&srcVertex);
+    printf("\n Enter destination vertex number (0-vertices): ");
+    scanf("%d",&desVertex);
+    printf("\n Enter true for bidirectional, false otherwise: ");
+    scanf("%d",&state);
+    printf("\n");
+    g.connectVertices(srcVertex,desVertex,(bool)state);
+  }
 
+  g.showGraph();
   return 0;
 
 }
