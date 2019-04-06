@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <conio.h>
-#include <math.h>
 
 #define SIZE 100
 #define initial 1
@@ -42,7 +41,6 @@ public:
 	void Initialize(Queue&);
 	void connectVertices(int, int, bool);
 	void showGraph();
-
 	void BFS(int,Queue&);
 
 };
@@ -54,14 +52,11 @@ const inline bool Queue :: isEmpty() {
 
 const inline int Queue :: getFront() { return front; }
 const inline int Queue :: getRear() { return rear; }
-	
 
 void Queue ::enqueue(int v) {
-
 	if (front == -1) front = 0;
 	if (rear == SIZE - 1) return;
 	else queue[++rear] = v;
-
 }
 
 int Queue :: dequeue() {
@@ -78,7 +73,6 @@ void Graph::connectVertices(int i, int j, bool state = true) {
 }
 
 void Graph::showGraph() {
-	
 	for (int i = 0; i < vertices; i++) {
 	  printf("%d: ",i);
 		for (int j = 0; j < vertices; j++)
@@ -120,13 +114,10 @@ int main() {
 	scanf("%d%d", &v, &e);
 	Graph g(v, e);
 	Queue q;
-	for (int counter = 0; counter < ceil(e); counter++) {
-
-		printf("\n Enter source vertex number (0-vertices): ");
-		scanf("%d", &srcVertex);
-		printf("\n Enter destination vertex number (0-vertices): ");
-		scanf("%d", &desVertex);
-		printf("\n Enter true for bidirectional, false otherwise: ");
+	for (int counter = 0; counter < e; counter++) {
+		printf("\n Enter source and destination: ");
+		scanf("%d%d", &srcVertex, &desVertex);
+		printf("\n Enter 1 for bidirectional, 0 otherwise: ");
 		scanf("%d", &state);
 		printf("\n");
 		g.connectVertices(srcVertex, desVertex, (bool)state);
@@ -141,7 +132,6 @@ int main() {
 
 	getch();
 	return 0;
-
 
 }
 
